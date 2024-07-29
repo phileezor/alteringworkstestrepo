@@ -1,4 +1,4 @@
-/* Custom font inclusion */
+/* Custom fonts */
 @font-face {
     font-family: 'Sackers Gothic Std Heavy';
     src: url('fonts/Sackers Gothic Std Heavy.otf') format('opentype');
@@ -11,6 +11,16 @@
     src: url('fonts/sequel-sans-bold-disp.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
+    font-display: swap; /* This helps with FOIT (Flash of Invisible Text) */
+}
+
+/* Preload the new font */
+body::after {
+    content: '';
+    font-family: 'Sequel Sans Bold Disp';
+    position: absolute;
+    left: -9999px;
+    visibility: hidden;
 }
 
 /* General reset */
@@ -34,78 +44,30 @@ p, .navbar, .nav-item, .dropdown-content a {
 /* Apply Sequel Sans Bold Disp to specific elements */
 .navbar .nav-item:first-child,
 .navbar .nav-item:last-child,
-.dropdown-content a:nth-child(1),
-.dropdown-content a:nth-child(2),
-.dropdown-content a:nth-child(3),
-.dropdown-content a:nth-child(4),
-.dropdown-content a:nth-child(5),
-.dropdown-content a:nth-child(6) {
-    font-family: 'Sequel Sans Bold Disp', Arial, sans-serif; /* Fallback font */
+#menuToggle,
+.dropdown-content a {
+    font-family: 'Sequel Sans Bold Disp', Arial, sans-serif !important;
 }
 
-/* Video background styling */
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1; /* Ensure video stays behind the content */
-}
-
-#bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure video covers entire background */
-    transform: translate(-50%, -50%);
-}
-
-/* Navigation bar styling */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em 2em;
-    background-color: rgba(0, 0, 0, 0.8); /* Match dropdown background */
-    backdrop-filter: blur(10px); /* Match dropdown blur effect */
-    z-index: 10;
-    color: white;
-}
-
-.nav-item {
-    cursor: pointer;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
+/* ... (rest of your CSS remains the same) ... */
 
 .dropdown-content {
-    display: none;
+    display: block; /* Change this from 'none' to 'block' */
     position: fixed;
     top: 0;
-    right: -100%; /* Start off-screen */
-    width: 300px; /* Adjusted width (increase as needed) */
+    right: -300px; /* Start off-screen, matching the width */
+    width: 300px;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8); /* Same as navbar */
-    backdrop-filter: blur(10px); /* Same as navbar */
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
     box-shadow: -5px 0 15px rgba(0,0,0,0.2);
     z-index: 11;
     transition: right 0.3s ease-in-out;
-    padding-top: 60px; /* Space for the navbar */
+    padding-top: 60px;
 }
 
 .dropdown-content.show {
     right: 0;
-    display: block;
 }
 
 .dropdown-content a {
