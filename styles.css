@@ -6,6 +6,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Sequel Sans Bold Disp';
+    src: url('fonts/sequel-sans-bold-disp.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 /* General reset */
 * {
     margin: 0;
@@ -22,6 +29,18 @@ html, body {
 /* Apply custom font to all paragraphs */
 p, .navbar, .nav-item, .dropdown-content a {
     font-family: 'Sackers Gothic Std Heavy', Arial, sans-serif; /* Fallback font */
+}
+
+/* Apply Sequel Sans Bold Disp to specific elements */
+.navbar .nav-item:first-child,
+.navbar .nav-item:last-child,
+.dropdown-content a:nth-child(1),
+.dropdown-content a:nth-child(2),
+.dropdown-content a:nth-child(3),
+.dropdown-content a:nth-child(4),
+.dropdown-content a:nth-child(5),
+.dropdown-content a:nth-child(6) {
+    font-family: 'Sequel Sans Bold Disp', Arial, sans-serif; /* Fallback font */
 }
 
 /* Video background styling */
@@ -53,9 +72,9 @@ p, .navbar, .nav-item, .dropdown-content a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em 2em; /* Increased horizontal padding */
-    background: rgba(255, 255, 255, 0.1); /* Transparent background */
-    backdrop-filter: blur(10px); /* Blurry effect */
+    padding: 1em 2em;
+    background-color: rgba(0, 0, 0, 0.8); /* Match dropdown background */
+    backdrop-filter: blur(10px); /* Match dropdown blur effect */
     z-index: 10;
     color: white;
 }
@@ -74,10 +93,10 @@ p, .navbar, .nav-item, .dropdown-content a {
     position: fixed;
     top: 0;
     right: -100%; /* Start off-screen */
-    width: 250px; /* Adjust as needed */
+    width: 300px; /* Adjusted width (increase as needed) */
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.8); /* Same as navbar */
+    backdrop-filter: blur(10px); /* Same as navbar */
     box-shadow: -5px 0 15px rgba(0,0,0,0.2);
     z-index: 11;
     transition: right 0.3s ease-in-out;
