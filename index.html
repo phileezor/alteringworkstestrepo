@@ -17,19 +17,19 @@
     <nav class="navbar">
         <div class="nav-item">recent</div>
         <div class="nav-item">altering works</div>
-        <div class="nav-item dropdown" id="menuToggle">
-            menu
-            <div class="dropdown-content" id="menuContent">
-                <a href="#">about</a>
-                <a href="#">contact</a>
-                <a href="#">collection</a>
-                <a href="#">misc</a>
-                <a href="https://x.com/alteringworks" target="_blank" rel="noopener noreferrer">twitter</a>
-                <a href="https://www.instagram.com/altering.works" target="_blank" rel="noopener noreferrer">instagram</a>
-                <a href="#">altering works &copy; 2024</a>
-            </div>
-        </div>
+        <div class="nav-item" onclick="openNav()">menu</div>
     </nav>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">about</a>
+        <a href="#">contact</a>
+        <a href="#">collection</a>
+        <a href="#">misc</a>
+        <a href="https://x.com/alteringworks" target="_blank" rel="noopener noreferrer">twitter</a>
+        <a href="https://www.instagram.com/altering.works" target="_blank" rel="noopener noreferrer">instagram</a>
+        <a href="#">altering works &copy; 2024</a>
+    </div>
 
     <div class="content">
         <div class="text-container">
@@ -43,9 +43,13 @@
     </div>
 
     <script>
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            document.getElementById('menuContent').classList.toggle('show');
-        });
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
     </script>
 </body>
 </html>
