@@ -16,7 +16,12 @@
 /* Make body take up full height */
 html, body {
     height: 100%;
-    font-family: 'Sackers Gothic Std Heavy', Arial, sans-serif;
+    font-family: Arial, sans-serif; /* Fallback font */
+}
+
+/* Apply custom font to all paragraphs */
+p, .navbar, .nav-item, .dropdown-content a {
+    font-family: 'Sackers Gothic Std Heavy', Arial, sans-serif; /* Fallback font */
 }
 
 /* Video background styling */
@@ -27,7 +32,7 @@ html, body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: -1;
+    z-index: -1; /* Ensure video stays behind the content */
 }
 
 #bg-video {
@@ -36,7 +41,7 @@ html, body {
     left: 50%;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Ensure video covers entire background */
     transform: translate(-50%, -50%);
 }
 
@@ -48,9 +53,9 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em 2em;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    padding: 1em 2em; /* Increased horizontal padding */
+    background: rgba(255, 255, 255, 0.1); /* Transparent background */
+    backdrop-filter: blur(10px); /* Blurry effect */
     z-index: 10;
     color: white;
 }
@@ -59,39 +64,41 @@ html, body {
     cursor: pointer;
 }
 
-/* Side Navigation Menu */
-.sidenav {
-    height: 100%;
-    width: 0;
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
     position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen */
+    width: 250px; /* Adjust as needed */
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
     z-index: 11;
-    top: 0;
+    transition: right 0.3s ease-in-out;
+    padding-top: 60px; /* Space for the navbar */
+}
+
+.dropdown-content.show {
     right: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
     display: block;
-    transition: 0.3s;
 }
 
-.sidenav a:hover {
-    color: #f1f1f1;
+.dropdown-content a {
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
 }
 
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Content styling */
@@ -109,17 +116,20 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform: translateY(20vh);
+    transform: translateY(20vh); /* This moves the entire text block down */
 }
 
 .fade-in {
+    -webkit-animation: fadeIn 7s ease-in-out infinite;
+    -moz-animation: fadeIn 7s ease-in-out infinite;
+    -o-animation: fadeIn 7s ease-in-out infinite;
     animation: fadeIn 7s ease-in-out infinite;
     animation-delay: 0.54s;
 }
 
 .main-text {
     font-size: 2em;
-    margin-bottom: 1em;
+    margin-bottom: 1em; /* Adds space between "coming soon" and social links */
 }
 
 .social-links {
@@ -127,30 +137,29 @@ html, body {
 }
 
 .social-links span {
-    margin: 0 12.5px;
+    margin: 0 12.5px; /* This adds 25px space between instagram and twitter (12.5px on each side) */
 }
 
 .social-links a {
-    text-decoration: none;
-    color: inherit;
-    transition: text-decoration 0.3s ease;
+    text-decoration: none; /* Remove default underline */
+    color: inherit; /* Use the default text color */
+    transition: text-decoration 0.3s ease; /* Smooth transition for underline */
 }
 
 .social-links a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Underline on hover */
 }
 
 .social-links a:not(:hover) {
-    text-decoration: none;
+    text-decoration: none; /* Remove underline when not hovering */
 }
 
 /* Fade-in animation */
 @keyframes fadeIn {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
-}
-
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
 }
