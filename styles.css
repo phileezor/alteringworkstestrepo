@@ -53,7 +53,7 @@ p, .navbar, .nav-item, .dropdown-content a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
+    padding: 1em 2em; /* Increased horizontal padding */
     background: rgba(255, 255, 255, 0.1); /* Transparent background */
     backdrop-filter: blur(10px); /* Blurry effect */
     z-index: 10;
@@ -71,28 +71,34 @@ p, .navbar, .nav-item, .dropdown-content a {
 
 .dropdown-content {
     display: none;
-    position: absolute;
-    right: 0;
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen */
+    width: 250px; /* Adjust as needed */
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    z-index: 11;
+    transition: right 0.3s ease-in-out;
+    padding-top: 60px; /* Space for the navbar */
+}
+
+.dropdown-content.show {
+    right: 0;
+    display: block;
 }
 
 .dropdown-content a {
     color: white;
-    padding: 12px 16px;
+    padding: 15px 25px;
     text-decoration: none;
     display: block;
+    transition: background-color 0.3s;
 }
 
 .dropdown-content a:hover {
     background-color: rgba(255, 255, 255, 0.1);
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
 }
 
 /* Content styling */

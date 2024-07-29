@@ -17,9 +17,10 @@
     <nav class="navbar">
         <div class="nav-item">recent</div>
         <div class="nav-item">altering works</div>
-        <div class="nav-item dropdown">
-            about
-            <div class="dropdown-content">
+        <div class="nav-item dropdown" id="menuToggle">
+            menu
+            <div class="dropdown-content" id="menuContent">
+                <a href="#">about</a>
                 <a href="#">contact</a>
                 <a href="#">collection</a>
                 <a href="#">misc</a>
@@ -40,5 +41,11 @@
             </p>
         </div>
     </div>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('menuContent').classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
