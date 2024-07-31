@@ -59,7 +59,9 @@ p, .navbar, .nav-item, .dropdown-content a {
     backdrop-filter: blur(10px); /* Blurry effect */
     z-index: 10;
     color: white;
+    height: 60px; /* Set the height of the navigation bar */
 }
+
 
 .nav-item {
     cursor: pointer;
@@ -67,10 +69,10 @@ p, .navbar, .nav-item, .dropdown-content a {
 
 .sidebar {
     position: fixed;
-    top: 0;
+    top: 60px; /* Adjust this value to match the height of the navigation bar */
     right: 0;
     width: 300px;
-    height: 100vh;
+    height: calc(100vh - 60px); /* Adjust the height to account for the navigation bar */
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     z-index: 100;
