@@ -3,11 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.getElementById('sidebar');
 
     menuToggle.addEventListener('click', function(e) {
-        e.stopPropagation(); // Prevent event from bubbling up
+        e.stopPropagation();
         toggleSidebar();
     });
 
-    // Close sidebar when clicking outside
     document.addEventListener('click', function(e) {
         if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
             closeSidebar();
