@@ -24,15 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function openSidebar() {
         sidebar.classList.add('show');
-        setTimeout(() => {
-            sidebar.style.opacity = '1';
-        }, 50);
     }
 
     function closeSidebar() {
-        sidebar.style.opacity = '0';
-        setTimeout(() => {
-            sidebar.classList.remove('show');
-        }, 300); // Match this with your transition duration
+        sidebar.classList.remove('show');
     }
 });
