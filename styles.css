@@ -62,23 +62,23 @@ p, .navbar, .nav-item, .dropdown-content a {
 .sidebar {
     position: fixed;
     top: 60px;
-    left: 0; /* Move sidebar to the left */
+    left: -300px; /* Start off-screen to the left */
     width: 300px;
     height: calc(100vh - 60px);
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     z-index: 100;
-    transition: opacity 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
     overflow-y: auto;
     opacity: 0;
     pointer-events: none;
 }
 
 .sidebar.show {
+    left: 0; /* Move to visible position */
     opacity: 1;
     pointer-events: auto;
 }
-
 .sidebar-content {
     padding-top: 60px;
     display: flex;
