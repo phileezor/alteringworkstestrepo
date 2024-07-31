@@ -62,7 +62,7 @@ p, .navbar, .nav-item, .dropdown-content a {
 .sidebar {
     position: fixed;
     top: 60px;
-    right: 0;
+    left: 0; /* Move sidebar to the left */
     width: 300px;
     height: calc(100vh - 60px);
     background: rgba(255, 255, 255, 0.1);
