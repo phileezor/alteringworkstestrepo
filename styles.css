@@ -62,20 +62,19 @@ p, .navbar, .nav-item, .dropdown-content a {
 .sidebar {
     position: fixed;
     top: 60px;
-    left: -300px;
+    left: 0;
     width: 300px;
     height: calc(100vh - 60px);
     background: rgba(0, 0, 0, 0.8); /* Darkened background */
     backdrop-filter: blur(10px);
     z-index: 100;
-    transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
     overflow-y: auto;
     opacity: 0;
     pointer-events: none;
 }
 
 .sidebar.show {
-    left: 0;
     opacity: 1;
     pointer-events: auto;
 }
